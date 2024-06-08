@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectItem from "../components/ProjectItem.astro";
+
+//Información de los proyectos
+import { projectsData } from "../data/projects";
+
+//URL
+const { project } = Astro.params;
+
+//Buscamos el proyecto con la URL
+const projectToShow = projectsData.find((p) => p.title == project);
+---
+
+
+<Layout title={project}>
+  <main
+    class="min-h-dvh flex flex-col justify-center items-center p-4 max-w-screen-md mx-auto"
+  >
+    <ProjectItem
+      projectTitle={projectToShow?.title}
+      projectImg={projectToShow?.img}
+      description={projectToShow.description}
+      web={projectToShow.web}
+      repository={projectToShow.repository}
+      skills={projectToShow.skills}
+    />
+  </main>
+</Layout>

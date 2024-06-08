@@ -1,0 +1,135 @@
+---
+
+---
+
+<nav
+  class="fixed top-0 left-0 bg-zinc-800 w-full gap-x-3 z-[150] overflow-hidden"
+>
+  <ul class="navbar flex flex-col justify-center sm:h-12">
+    <li class="p-3 sm:hidden">
+      <svg
+        id="menu-open"
+        onclick="showMenu()"
+        viewBox="0 0 24 24"
+        fill="#fff"
+        xmlns="http://www.w3.org/2000/svg"
+        stroke="#fff"
+        aria-label="open menu"
+        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+          <path
+            d="M4 6H20M4 12H20M4 18H20"
+            stroke="#fff"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </g></svg
+      >
+
+      <svg
+        id="menu-close"
+        onclick="closeMenu()"
+        class="hidden"
+        viewBox="0 0 1024 1024"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#fff"
+        stroke="#fff"
+        aria-label="close menu"
+        ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"
+          ><path
+            fill="#fff"
+            d="M764.288 214.592 512 466.88 259.712 214.592a31.936 31.936 0 0 0-45.12 45.12L466.752 512 214.528 764.224a31.936 31.936 0 1 0 45.12 45.184L512 557.184l252.288 252.288a31.936 31.936 0 0 0 45.12-45.12L557.12 512.064l252.288-252.352a31.936 31.936 0 1 0-45.12-45.184z"
+          ></path></g
+        ></svg
+      >
+    </li>
+
+    <li>
+      <ul
+        class="menu h-0 opacity-0 sm:opacity-100 sm:flex sm:justify-center sm:items-center gap-x-3 transition-all"
+      >
+        <li class="px-3 py-2">
+          <a
+            href="#home"
+            class="text-white block font-medium hover:text-yellow-300"
+            >Inicio</a>
+        </li>
+        <li class="px-3 py-2">
+          <a
+            href="#skills"
+            class="text-white block font-medium hover:text-yellow-300"
+            >Habilidades</a>
+        </li>
+        <li class="px-3 py-2">
+          <a
+            href="#projects"
+            class="text-white block font-medium hover:text-yellow-300"
+            >Proyectos</a>
+        </li>
+        <li class="px-3 py-2">
+          <a
+            href="#contact"
+            class="text-white block font-medium hover:text-yellow-300"
+            >Contacto</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<script type="text/javascript">
+  const openButton = document.getElementById("menu-open");
+  const closeButton = document.getElementById("menu-close");
+  const menu = document.querySelector(".menu");
+
+  function showMenu() {
+    //ocultamos el boton del menu
+    openButton.classList.add("hidden");
+
+    //mostramos el boton de cerrar
+    closeButton.classList.remove("hidden");
+
+    menu.classList.remove("h-0", "opacity-0");
+    menu.classList.add("h-40", "opacity-1");
+  }
+
+  function closeMenu() {
+    //ocultamos el boton de cerrar
+    closeButton.classList.add("hidden");
+
+    //mostramos el boton de menu
+    openButton.classList.remove("hidden");
+
+    menu.classList.remove("h-40", "opacity-1");
+    menu.classList.add("h-0", "opacity-0");
+  }
+</script>
+
+<style>
+  a {
+    transition: color 0.3s ease-in-out;
+  }
+
+  .dropdown-menu {
+    transition: 0.3s ease;
+
+    a {
+      display: block;
+    }
+  }
+
+  .navbar svg {
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar svg:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+  }
+</style>
