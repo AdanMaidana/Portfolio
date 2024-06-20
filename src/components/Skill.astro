@@ -1,0 +1,30 @@
+---
+const { text } = Astro.props;
+const icons = import.meta.glob("/src/assets/icons/*.astro");
+
+// Crear un objeto que mapee los nombres de las tecnologías a sus respectivos componentes
+const iconMap = {
+  html: icons["/src/assets/icons/html.astro"],
+  css: icons["/src/assets/icons/css.astro"],
+  javascript: icons["/src/assets/icons/javascript.astro"],
+  bootstrap: icons["/src/assets/icons/bootstrap.astro"],
+  react: icons["/src/assets/icons/react.astro"],
+  vite: icons["/src/assets/icons/vite.astro"],
+  astro: icons["/src/assets/icons/astro.astro"],
+};
+
+// Normalizar el texto a minúsculas para asegurar la coincidencia
+const normalizedText = text.toLowerCase();
+
+// Obtener el componente correspondiente
+const IconComponent = iconMap[normalizedText]
+  ? await iconMap[normalizedText]()
+  : null;
+---
+
+<>
+  <p class="flex justify-center items-center text-[.6rem] tracking-widest text-white font-normal">
+    {text}
+  </p>
+  {IconComponent ? <IconComponent.default /> : null}
+</>

@@ -8,16 +8,26 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-
-
-<Layout title="Adán Maidana | Portfolio" >
+<Layout title="Adán Maidana | Portfolio">
   <Navbar />
-  <main>
+  <main class="relative">
+    <div id="background"></div>
     <Home />
-    <Skills />
     <Projects />
+    <Skills />
     <Contact />
   </main>
   <Footer />
 </Layout>
 
+<style>
+  #background {
+    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+  }
+</style>
