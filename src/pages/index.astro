@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Home from "../sections/Home.astro";
-import Skills from "../sections/Skills.astro";
-import Projects from "../sections/Projects.astro";
-import Contact from "../sections/Contact.astro";
 import Navbar from "../components/Navbar.astro";
+import Home from "../sections/Home.astro";
+import Projects from "../sections/Projects.astro";
+import Skills from "../sections/Skills.astro";
+import Contact from "../sections/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -20,12 +20,40 @@ import Footer from "../components/Footer.astro";
   <Footer />
 </Layout>
 
+<script type="module">
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav ul li a");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active-link",
+                link.getAttribute("href").substring(1) === entry.target.id
+              );
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.2, // Puedes ajustar este valor según tus necesidades
+      }
+    );
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
+
 <style>
   #background {
     background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
     position: fixed;
-    bottom: 0;
-    left: 0;
+    top: 0;
     height: 100%;
     width: 100%;
     z-index: -10;

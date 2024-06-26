@@ -28,6 +28,16 @@ export const projectsData = [
     repository: "https://github.com/AdanMaidana/DOMO-FrontEnd-Challenge",
   },
   {
+    title: "Previsualizador de Markdown",
+    img: Markdown,
+    description: [
+      "Utilizando un editor de texto que funciona con el lenguaje de marcado 'Markdown' puedes crear código HTML."
+    ],
+    skills: ["HTML", "CSS", "JavaScript", "React"],
+    web: "https://adanmaidana.github.io/Markdown-Previewer/",
+    repository: "https://github.com/AdanMaidana/Markdown-Previewer",
+  },
+  {
     title: "Calculadora",
     img: Calculadora,
     description: [
@@ -49,15 +59,4 @@ export const projectsData = [
     web: "https://adanmaidana.github.io/25-5-Clock/",
     repository: "https://github.com/AdanMaidana/25-5-Clock",
   },
-  {
-    title: "Previsualizador de Markdown",
-    img: Markdown,
-    description: [
-      "Utilizando un editor de texto que funciona con el lenguaje de marcado 'Markdown' puedes crear código HTML."
-    ],
-    skills: ["HTML", "CSS", "JavaScript", "React"],
-    web: "https://adanmaidana.github.io/Markdown-Previewer/",
-    repository: "https://github.com/AdanMaidana/Markdown-Previewer",
-  },
-
 ];

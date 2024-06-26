@@ -1,6 +1,10 @@
+---
+
+---
+
 <section
   id="skills"
-  class="text-white mx-auto px-4 py-20 flex flex-col items-center justify-center scroll-mt-4"
+  class="text-white mx-auto px-4 my-20 flex flex-col items-center justify-center scroll-mt-4"
 >
   <header class="mb-4">
     <h2
@@ -8,6 +12,7 @@
     >
       Habilidades
       <svg
+      id="skillSvg"
         fill="#c2ffe2"
         width="36px"
         height="36px"
@@ -70,7 +75,7 @@
                   width="819.20"
                   height="819.20"
                   rx="409.6"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -106,7 +111,7 @@
                   width="819.20"
                   height="819.20"
                   rx="409.6"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -142,7 +147,7 @@
                   width="819.20"
                   height="819.20"
                   rx="409.6"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -174,7 +179,7 @@
                   width="409.60"
                   height="409.60"
                   rx="204.8"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -211,7 +216,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -239,7 +244,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -274,7 +279,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -332,7 +337,7 @@
                   width="38.40"
                   height="38.40"
                   rx="19.2"
-                  fill="#fcfcfc"
+                  fill="none"
                   stroke-width="0"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
@@ -369,7 +374,7 @@
                   width="51.84"
                   height="51.84"
                   rx="25.92"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -410,7 +415,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -451,7 +456,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -482,7 +487,7 @@
                   width="422.40"
                   height="422.40"
                   rx="211.2"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -549,7 +554,7 @@
                   width="51.20"
                   height="51.20"
                   rx="25.6"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -584,7 +589,7 @@
                   width="102.40"
                   height="102.40"
                   rx="51.2"
-                  fill="#fcfcfc"></rect></g
+                  fill="none"></rect></g
               ><g
                 id="SVGRepo_tracerCarrier"
                 stroke-linecap="round"
@@ -660,6 +665,18 @@
 </section>
 
 <style>
+
+#skillSvg {
+  animation-name: rotate;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg);}
+}
+
   .frontend,
   .backend,
   .others {
@@ -671,15 +688,8 @@
     padding: 2rem 2rem;
 
     svg {
-      z-index: 100;
       width: 75px;
       height: 75px;
-      transition: transform 0.3s ease;
-    }
-
-    svg:hover {
-      cursor: pointer;
-      transform: scale(1.2);
     }
   }
 
@@ -690,12 +700,22 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    row-gap: 0.5rem;
+    background: linear-gradient(to bottom, #fff, #d4d4d4);
+    border-radius: 10px;
+    padding: 1rem;
+    transition: transform .3s, box-shadow .3s;
 
     p {
-      color: #fff;
-      font-weight: 100;
+      color: #000;
+      font-weight: 400;
     }
+  }
+
+  .frontend-content li:hover,
+  .backend-content li:hover,
+  .others-content li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 20px 0px rgb(0, 174, 255);
   }
 
   h2 {
