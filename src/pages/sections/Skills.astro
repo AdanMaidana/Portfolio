@@ -4,9 +4,9 @@
 
 <section
   id="skills"
-  class="text-white mx-auto px-4 my-20 flex flex-col items-center justify-center scroll-mt-4"
+  class="text-white mx-auto px-4 my-20 flex flex-col items-center justify-center scroll-mt-[5rem]"
 >
-  <header class="mb-4">
+  <header class="mb-10">
     <h2
       class="text-4xl font-bold text-center text-emerald-400 flex justify-center items-end gap-x-3 italic"
     >
@@ -50,7 +50,7 @@
   <main class="flex flex-col max-w-screen-lg mx-auto">
     <ul class="frontend">
       <li>
-        <h3 class="font-medium text-center text-cyan-400 mb-7 text-xl">
+        <h3 class="font-medium text-center text-cyan-400 mb-7 text-2xl">
           Frontend
         </h3>
       </li>
@@ -390,9 +390,9 @@
       </li>
     </ul>
 
-    <ul class="backend">
+    <ul class="backend my-10">
       <li>
-        <h3 class="font-medium text-center text-cyan-400 mb-7 text-xl">
+        <h3 class="font-medium text-center text-cyan-400 mb-7 text-2xl">
           Backend
         </h3>
       </li>
@@ -529,7 +529,7 @@
 
     <ul class="others">
       <li>
-        <h3 class="font-medium text-center text-cyan-400 mb-7 text-xl">
+        <h3 class="font-medium text-center text-cyan-400 mb-7 text-2xl">
           Herramientas
         </h3>
       </li>
@@ -684,8 +684,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 auto;
-    padding: 2rem 2rem;
 
     svg {
       width: 75px;
@@ -704,6 +702,8 @@
     border-radius: 10px;
     padding: 1rem;
     transition: transform .3s, box-shadow .3s;
+    box-shadow: 0px 0px 10px 1px black inset;
+    z-index: 10;
 
     p {
       color: #000;
@@ -715,7 +715,7 @@
   .backend-content li:hover,
   .others-content li:hover {
     transform: scale(1.1);
-    box-shadow: 0 2px 20px 0px rgb(0, 174, 255);
+    box-shadow: 0px 0px 15px 1px transparent inset, 0 2px 20px 0px rgb(0, 174, 255);
   }
 
   h2 {

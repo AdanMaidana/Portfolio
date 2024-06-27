@@ -1,17 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import Home from "../sections/Home.astro";
-import Projects from "../sections/Projects.astro";
-import Skills from "../sections/Skills.astro";
-import Contact from "../sections/Contact.astro";
+import Home from "../pages/sections/Home.astro";
+import Projects from "../pages/sections/Projects.astro";
+import Skills from "../pages/sections/Skills.astro";
+import Contact from "../pages/sections/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Adán Maidana | Portfolio">
   <Navbar />
-  <main class="relative">
-    <div id="background"></div>
+  <main>
+    <div class="relative -z-50 h-full w-full bg-black"><div class="fixed -z-50 bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div><div class="absolute left-0 right-0 top-0 -z-50 h-full w-full rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)]"></div></div>
     <Home />
     <Projects />
     <Skills />
@@ -19,43 +19,3 @@ import Footer from "../components/Footer.astro";
   </main>
   <Footer />
 </Layout>
-
-<script type="module">
-  document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            navLinks.forEach((link) => {
-              link.classList.toggle(
-                "active-link",
-                link.getAttribute("href").substring(1) === entry.target.id
-              );
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.2, // Puedes ajustar este valor según tus necesidades
-      }
-    );
-
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-  });
-</script>
-
-<style>
-  #background {
-    background: radial-gradient(125% 125% at 50% 10%, #000 40%, #63e 100%);
-    position: fixed;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -10;
-  }
-</style>
