@@ -5,7 +5,7 @@ import Skill from "./Skill.astro";
 const { project } = Astro.props;
 ---
 
-<article class="rounded shadow-lg max-w-screen-lg project">
+<article class="project rounded max-w-screen-lg">
   <div class="project-content flex-col md:flex-row flex-wrap items-center">
     <div
       class="order-1 md:order-2 w-full md:w-[45%] md:mx-auto flex flex-col gap-y-4 pb-4 md:pb-0"
@@ -167,22 +167,19 @@ const { project } = Astro.props;
   .project {
     max-width: 1024px;
     position: relative;
-    transition: transform 0.6s ease;
     border-radius: 0.5rem;
     margin: 0 auto;
     animation: reveal linear both;
     animation-timeline: view();
-    /* cuando la imagen se vea un 15% empieza y finaliza cuando se vea el 30% */
-    animation-range: entry 10% cover 30%;
-    animation-iteration-count: 1;
+    animation-range: entry 15% cover 30%;
   }
 
   @keyframes reveal {
-    from {
+    0% { 
       opacity: 0;
-      scale: .5;
+      scale: 0.5;
     }
-    to {
+    100% {
       opacity: 1;
       scale: 1;
     }
@@ -234,14 +231,7 @@ const { project } = Astro.props;
     filter: blur(0.6rem);
   }
 
-  @keyframes rotation {
-    0% {
-      --gradient-angle: 0deg;
-    }
-    100% {
-      --gradient-angle: 360deg;
-    }
-  }
+  
 
   .project:hover::after,
   .project:hover::before {
@@ -251,5 +241,14 @@ const { project } = Astro.props;
   .project-link svg {
     height: 24px;
     width: 24px;
+  }
+
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
   }
 </style>
