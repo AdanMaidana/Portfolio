@@ -26,6 +26,31 @@ import ProjectItem from "../../components/ProjectItem.astro";
   </main>
 </section>
  
+<script type="text/javascript">
+  const allProjects = document.querySelectorAll(".project");
+
+  //función a ejecutar cuando el elemento entre en el viewport
+ const showProjects = (entradas, observador) => {
+  entradas.forEach((entrada) => {
+    if(entrada.isIntersecting) {
+      entrada.target.classList.add("visible")
+    }
+  })
+ }
+
+ /* primer valor: funcion a ejecutar cuando el proyecto entre en el viewport */
+ /* segundo valor: objeto de configuraciones */
+ const observador = new IntersectionObserver(showProjects, {
+  //contenedor donde se observan los cambios del elemento objetivo, (root: null) = todo el viewport se observara
+  root: null,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: .60,
+ });
+
+allProjects.forEach((project) => {
+  observador.observe(project);
+})
+</script>
 
 <style>
     h2 {

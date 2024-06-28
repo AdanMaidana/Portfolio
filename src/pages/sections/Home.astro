@@ -119,7 +119,6 @@ import profilePicture from "../../assets/perfil.jpg";
 </section>
 
 <style>
-
   #profilePicture {
     animation-name: fadeInDown;
     animation-duration: 1.5s;
@@ -129,9 +128,9 @@ import profilePicture from "../../assets/perfil.jpg";
   h1 {
     color: transparent;
     -webkit-text-stroke: 1px #fff;
-    background: linear-gradient(to right, rgb(0, 185, 130), rgb(111, 95, 255));
-    -webkit-background-clip: text;
+    background: linear-gradient(to right, rgb(0, 185, 130) 33%, #0077ff);
     background-clip: text;
+    -webkit-background-clip: text;
     animation-name: fadeInLeft;
     animation-duration: 1.5s;
     animation-fill-mode: both;
@@ -148,6 +147,10 @@ import profilePicture from "../../assets/perfil.jpg";
     }
   }
 
+  @keyframes fadeInUp {
+    0% {opacity: 0; transform: scale(.1) translateY(200%);}
+    100% {opacity: 1;}
+  }
 
   p {
     animation-name: fadeInRight;
@@ -165,6 +168,7 @@ import profilePicture from "../../assets/perfil.jpg";
       transform:translateX(0%) ;
     }
   }
+
   a {
     transition:
       transform 0.3s ease,
@@ -202,8 +206,5 @@ import profilePicture from "../../assets/perfil.jpg";
     animation-fill-mode: both;
   }
 
-  @keyframes fadeInUp {
-    0% {opacity: 0; transform: scale(.1) translateY(200%);}
-    100% {opacity: 1;}
-  }
+ 
 </style>
