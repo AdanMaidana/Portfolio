@@ -11,10 +11,14 @@ import profilePicture from "../../assets/perfil.jpg";
     id="profilePicture"
     class="rounded-full w-32 h-32 sm:w-52 sm:h-52 overflow-hidden relative border-4 border-blue-500 shadow-xl shadow-cyan-900"
   >
-    <Image src={profilePicture} alt="foto de perfil" class="-top-[70px] sm:-top-[115px] absolute" />
+    <Image
+      src={profilePicture}
+      alt="foto de perfil"
+      class="-top-[70px] sm:-top-[115px] absolute"
+    />
   </div>
 
-  <main>
+  <main id="home-main">
     <h1 class="font-bold text-4xl sm:text-5xl md:text-6xl">Adán Maidana</h1>
     <p class="text-cyan-600 font-medium text-lg sm:text-xl md:text-2xl">
       Desarrollador Frontend
@@ -116,6 +120,13 @@ import profilePicture from "../../assets/perfil.jpg";
       </li>
     </ul>
   </main>
+
+<svg class="arrows">
+  <path class="a1" d="M0 0 L20 22 L40 0"></path>
+  <path class="a2" d="M0 13 L20 35 L40 13"></path>
+  <path class="a3" d="M0 26 L20 48 L40 26"></path>
+</svg>
+
 </section>
 
 <style>
@@ -134,39 +145,17 @@ import profilePicture from "../../assets/perfil.jpg";
     animation-name: fadeInLeft;
     animation-duration: 1.5s;
     animation-fill-mode: both;
-  }
-
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform:translateX(-200%);
-    }
-    100% {
-      opacity: 1;
-      transform:translateX(0%) ;
-    }
-  }
-
-  @keyframes fadeInUp {
-    0% {opacity: 0; transform: scale(.1) translateY(200%);}
-    100% {opacity: 1;}
+    overflow: hidden;
   }
 
   p {
+    color: transparent;
+    background: linear-gradient(to left, rgb(0, 185, 130) 33%, #0077ff);
+    background-clip: text;
+    -webkit-background-clip: text;
     animation-name: fadeInRight;
     animation-duration: 1.5s;
     animation-fill-mode: both;
-  }
-
-  @keyframes fadeInRight {
-    0% {
-      opacity: 0;
-      transform:translateX(200%);
-    }
-    100% {
-      opacity: 1;
-      transform:translateX(0%) ;
-    }
   }
 
   a {
@@ -175,24 +164,9 @@ import profilePicture from "../../assets/perfil.jpg";
       background-color 0.3s,
       border-color 0.3s;
 
-      svg {
-        width: 20px;
-        height: 20px
-      }
-  }
-
-  @media (width >= 640px) {
-    a svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-
-
-  @media (width >= 768px) {
-    a svg {
-      width: 28px;
-      height: 28px;
+    svg {
+      width: 20px;
+      height: 20px;
     }
   }
 
@@ -206,5 +180,64 @@ import profilePicture from "../../assets/perfil.jpg";
     animation-fill-mode: both;
   }
 
- 
+
+  .arrows {
+  width: 40px;
+  height: 48px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  bottom: 20px;
+}
+
+.arrows path {
+  stroke: #ffffff;
+  fill: transparent;
+  stroke-width: 1px;  
+  animation: arrow 3s infinite;
+  -webkit-animation: arrow 3s infinite; 
+}
+
+@keyframes arrow {
+  0% {opacity: 0;}
+  40% {opacity: 1;}
+  80% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+@-webkit-keyframes arrow {
+  0% {opacity: 0;}
+  40% {opacity: 1;}
+  80% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+.arrows path.a1 {
+  animation-delay: -1s;
+  -webkit-animation-delay: -1s;
+}
+
+.arrows path.a2 {
+  animation-delay: -0.5s;
+  -webkit-animation-delay: -0.5s;
+}
+
+.arrows path.a3 { 
+  animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+}
+
+  @media (width >= 640px) {
+    a svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (width >= 768px) {
+    a svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
 </style>

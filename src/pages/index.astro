@@ -22,8 +22,203 @@ import Footer from "../components/Footer.astro";
 
     <Home />
     <Projects />
+
+    <div class="divider"></div>
+
     <Skills />
+
+    <div class="divider"></div>
+
     <Contact />
   </main>
   <Footer />
 </Layout>
+
+<script>
+  //Animación de las lineas divisoras de secciones
+  // Define las secciones que deseas observar
+  const sectionDivider = document.querySelectorAll(".divider");
+
+  const showSectionDivider = (entradas, observador) => {
+    /*   console.log(entradas[0].target) */
+
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add("show");
+      }
+    });
+  };
+
+  // Crea un objeto Intersection Observer
+  const sectionDividerObserver = new IntersectionObserver(showSectionDivider, {
+    root: null,
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 1,
+  });
+
+  // Observa cada sección
+  sectionDivider.forEach((divider) => {
+    sectionDividerObserver.observe(divider);
+  });
+
+  //Cambio de colores en las secciones del navbar segun lo que vea el usuario en pantalla
+  // Define las secciones que deseas observar
+  const homeIsActive = document.querySelector("#home main");
+  const projectsIsActive = document.querySelector("#projects main");
+  const skillsIsActive = document.querySelector("#skills main");
+  const contactIsActive = document.querySelector("#contact main");
+
+  const changeActiveSection = (entradas, observador) => {
+    const homeButton = document.querySelector(".home-button");
+    const projectsButton = document.querySelector(".projects-button");
+    const skillsButton = document.querySelector(".skills-button");
+    const contactButton = document.querySelector(".contact-button");
+
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        // Elimina la clase "active" de todos los botones
+        homeButton.classList.remove("active");
+        projectsButton.classList.remove("active");
+        skillsButton.classList.remove("active");
+        contactButton.classList.remove("active");
+
+        // Agrega la clase "active" al botón correspondiente
+        switch (entrada.target.id) {
+          case "home-main":
+            homeButton.classList.add("active");
+            break;
+          case "projects-main":
+            projectsButton.classList.add("active");
+            break;
+          case "skills-main":
+            skillsButton.classList.add("active");
+            break;
+          case "contact-main":
+            contactButton.classList.add("active");
+            break;
+        }
+      }
+    });
+  };
+
+  // Crea un objeto Intersection Observer
+  const activeSectionObserver = new IntersectionObserver(changeActiveSection, {
+    root: null,
+    rootMargin: "0px 0px 0px 0px",
+    threshold: 0.2,
+  });
+
+  // Observa cada sección
+  activeSectionObserver.observe(homeIsActive);
+  activeSectionObserver.observe(projectsIsActive);
+  activeSectionObserver.observe(skillsIsActive);
+  activeSectionObserver.observe(contactIsActive);
+</script>
+
+<style>
+  .divider {
+    margin: 9rem auto;
+    height: 2px;
+    width: 0%;
+    max-width: 1000px;
+    background: blue;
+    background: linear-gradient(
+      90deg,
+      hsl(0, 0%, 5%),
+      hsl(0, 0%, 50%),
+      hsl(0, 0%, 5%)
+    );
+  }
+
+  .divider.show {
+    animation-name: show;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes show {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80%;
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInRightSvg {
+    from {
+      opacity: 0;
+      transform: translateX(600%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInUpShort {
+    from {
+      opacity: 0;
+      transform: translateY(10%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInDownShort {
+    from {
+      opacity: 0;
+      transform: translateY(-25%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
