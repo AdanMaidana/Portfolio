@@ -682,7 +682,7 @@
           setTimeout(() => {
             svg.classList.remove("fadeRight");
             svg.classList.add("rotate");
-          }, 1500);
+          }, 3000);
         }
       }
     });
@@ -690,6 +690,7 @@
 
   const projectMainHeaderObserver = new IntersectionObserver(showMainHeader, {
     root: null,
+    rootMargin: "0px 0px -100px 0px",
     threshold: 1,
   });
 
@@ -708,6 +709,7 @@
 
   const skillsHeadersObserver = new IntersectionObserver(showSkillsHeaders, {
     root: null,
+    rootMargin: "0px 0px -150px 0px",
     threshold: 1,
   });
 
@@ -730,6 +732,7 @@
 
   const skillsObserver = new IntersectionObserver(showSkillsList, {
     root: null,
+    rootMargin: "0px 0px -150px 0px",
     threshold: 0.6,
   });
 

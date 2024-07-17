@@ -99,6 +99,7 @@ import ProjectItem from "../../components/ProjectItem.astro";
 
   const projectHeaderObserver = new IntersectionObserver(showProjectHeader, {
     root: null,
+    rootMargin: "0px 0px -150px 0px",
     threshold: 1,
   });
 

@@ -221,7 +221,7 @@
   const contactFormObserver = new IntersectionObserver(showContact, {
     //contenedor donde se observan los cambios del elemento objetivo, (root: null) = todo el viewport se observara
     root: null,
-    rootMargin: "0px 0px 0px 0px",
+    rootMargin: "0px 0px -150px 0px",
     threshold: 0.5,
   });
 
@@ -244,6 +244,7 @@
 
   const contactHeaderObserver = new IntersectionObserver(showContactHeader, {
     root: null,
+    rootMargin: "0px 0px -150px 0px",
     threshold: 1,
   });
 
@@ -262,6 +263,7 @@
 
   const aboveContactForm = new IntersectionObserver(fadeInDown, {
     root: null,
+    rootMargin: "0px 0px -150px 0px",
     threshold: 1,
   });
 
