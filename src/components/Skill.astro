@@ -1,30 +1,34 @@
 ---
+import { Image } from "astro:assets";
 const { text } = Astro.props;
-const icons = import.meta.glob("/src/assets/icons/*.astro");
 
-// Crear un objeto que mapee los nombres de las tecnologías a sus respectivos componentes
-const iconMap = {
-  html: icons["/src/assets/icons/html.astro"],
-  css: icons["/src/assets/icons/css.astro"],
-  javascript: icons["/src/assets/icons/javascript.astro"],
-  bootstrap: icons["/src/assets/icons/bootstrap.astro"],
-  react: icons["/src/assets/icons/react.astro"],
-  vite: icons["/src/assets/icons/vite.astro"],
-  astro: icons["/src/assets/icons/astro.astro"],
+import IconHtml from '../assets/icons/html.svg';
+import IconCss from '../assets/icons/css.svg';
+import IconJavaScript from '../assets/icons/javascript.svg';
+import IconBootstrap from '../assets/icons/bootstrap.svg';
+import IconReact from '../assets/icons/react.svg';
+import IconAstro from '../assets/icons/astro.svg';
+import IconVite from '../assets/icons/vite.svg';
+
+const icons = {
+  HTML: IconHtml,
+  CSS: IconCss,
+  JavaScript: IconJavaScript,
+  Bootstrap: IconBootstrap,
+  React: IconReact,
+  Astro: IconAstro,
+  Vite: IconVite,
 };
 
-// Normalizar el texto a minúsculas para asegurar la coincidencia
-const normalizedText = text.toLowerCase();
+const selectedIcon = icons[text];
 
-// Obtener el componente correspondiente
-const IconComponent = iconMap[normalizedText]
-  ? await iconMap[normalizedText]()
-  : null;
 ---
 
 <>
+  {selectedIcon && (
+    <Image src={selectedIcon} alt={`${text} icon`} width={25} height={25} />
+  )}
   <p class="flex justify-center items-center text-[.6rem] tracking-widest text-white font-normal">
     {text}
   </p>
-  {IconComponent ? <IconComponent.default /> : null}
 </>
